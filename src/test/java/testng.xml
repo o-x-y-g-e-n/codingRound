@@ -1,0 +1,7 @@
+<suite name="example suite 1" verbose="1" >
+  <test name="signIn Test">
+    <classes>
+      <class name="myorg.tests.SignInTest"/>
+    </classes>
+ </test>
+</suite>
