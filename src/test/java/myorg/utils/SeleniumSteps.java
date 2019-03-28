@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumSteps {
@@ -66,5 +67,9 @@ public class SeleniumSteps {
         }
         AutomationCore.getDriver().switchTo().window(subWindowHandler); // switch to popup window
         AutomationCore.getDriver().switchTo().window(parentWindowHandler);  // switch back to parent window
+    }
+
+    public static void selectFromDropBox(WebElement element,String visibleText){
+        new Select(element).selectByVisibleText(visibleText);
     }
 }

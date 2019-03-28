@@ -13,6 +13,9 @@ public class HomePage {
 	@FindBy(id="SignIn")
 	private  WebElement signInLnk;
 
+	@FindBy(linkText = "Hotels")
+	private WebElement hotelLink;
+
 	public  WebElement getSignInLnk() {
 		return signInLnk;
 	}
@@ -21,10 +24,12 @@ public class HomePage {
 		PageFactory.initElements(AutomationCore.getDriver(), this);
 
 	}
-
-
 	public void openSignInTab() {
 		tripsButton.click();
 		signInLnk.click();
+	}
+
+	public void navigateToHotelsTab(){
+		hotelLink.click();
 	}
 }
