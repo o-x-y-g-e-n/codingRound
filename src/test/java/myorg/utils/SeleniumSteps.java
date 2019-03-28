@@ -1,9 +1,14 @@
 package myorg.utils;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 public class SeleniumSteps {
 
     public static WebElement getElement(String locator){
@@ -41,15 +46,25 @@ public class SeleniumSteps {
         return null;
     }
 
-    public static void waitFor(int durationInMilliSeconds) {
-        try {
-            Thread.sleep(durationInMilliSeconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+    public static void waitUntilVisible(WebElement element) {
+        int sec = Integer.parseInt(AutomationCore.getResourceBundle().getString("explicitWaitSec"));
+        WebDriverWait wait = new WebDriverWait(AutomationCore.getDriver(),sec);
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
-    
-    private boolean isElementPresent(String locator) {
+
+    public static boolean isElementPresent(String locator) {
           return getElement(locator).isDisplayed();
+    }
+
+    public static void switchHandle(){
+        String parentWindowHandler = AutomationCore.getDriver().getWindowHandle(); // Store your parent window
+        String subWindowHandler = null;
+        Set<String> handles = AutomationCore.getDriver().getWindowHandles(); // get all window handles
+        Iterator<String> iterator = handles.iterator();
+        while (iterator.hasNext()){
+            subWindowHandler = iterator.next();
+        }
+        AutomationCore.getDriver().switchTo().window(subWindowHandler); // switch to popup window
+        AutomationCore.getDriver().switchTo().window(parentWindowHandler);  // switch back to parent window
     }
 }

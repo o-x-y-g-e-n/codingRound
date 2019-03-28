@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [example suite 1]">
+  <test name="signIn Test(failed)">
+    <classes>
+      <class name="myorg.tests.SignInTest">
+        <methods>
+          <include name="shouldThrowAnErrorIfSignInDetailsAreMissing"/>
+        </methods>
+      </class> <!-- myorg.tests.SignInTest -->
+    </classes>
+  </test> <!-- signIn Test(failed) -->
+</suite> <!-- Failed suite [example suite 1] -->
