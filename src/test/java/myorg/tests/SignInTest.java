@@ -16,8 +16,6 @@ public class SignInTest {
     @BeforeTest
     public void suitUp(){
     	ApplicationSteps.launchPage("/");
-    	PageFactory.initElements(AutomationCore.getDriver(), this);
-
     }
 
     @Test
