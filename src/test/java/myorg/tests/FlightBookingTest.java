@@ -27,7 +27,7 @@ public class FlightBookingTest {
     @Test
     public void testThatResultsAppearForAOneWayJourney() {
         FlightPage flightPage = new FlightPage();
-        flightPage.searchAFlight("Bangalore","Delhi");
+        flightPage.searchAFlight("Delhi","Bangalore");
         FlightListPage flightListPage = new FlightListPage();
         flightListPage.waitUntilSearchSummaryDisplayed();
         flightListPage.verifySummaryPresent();

@@ -16,13 +16,11 @@ public class HotelBookingTest {
 
     @BeforeTest
     public void suitUp(){
-        ApplicationSteps.launchPage("/");
+        ApplicationSteps.launchPage("/hotels");
 
     }
     @Test
     public void shouldBeAbleToSearchForHotels() {
-        HomePage homePage = new HomePage();
-        homePage.navigateToHotelsTab();
         HotelsPage hotelsPage = new HotelsPage();
         hotelsPage.searchForAnHotel("Indiranagar, Banglore","1 room, 2 adults");
     }

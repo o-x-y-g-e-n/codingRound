@@ -2,6 +2,8 @@
   <test name="signIn Test">
     <classes>
       <class name="myorg.tests.SignInTest"/>
+        <class name="myorg.tests.FlightBookingTest"></class>
+        <class name="myorg.tests.HotelBookingTest"></class>
     </classes>
  </test>
 </suite>
