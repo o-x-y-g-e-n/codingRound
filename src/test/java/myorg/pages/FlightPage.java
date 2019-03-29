@@ -35,8 +35,10 @@ public class FlightPage {
     public void searchAFlight(String from,String to){
         oneWay.click();
         fromTag.sendKeys(from);
+        SeleniumSteps.waitFor(2000);
         SeleniumSteps.waitUntilVisible(fromListing);
         fromListing.click();
+        SeleniumSteps.waitFor(2000);
         toTag.sendKeys(to);
         SeleniumSteps.waitUntilVisible(toListing);
         toListing.click();

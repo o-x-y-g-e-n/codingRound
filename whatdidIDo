@@ -1,0 +1,45 @@
+what did i do?
+
+1) tests just don't go in src/main/java --> instead src/test/java
+2) Created some directories to store respective files
+3) It's good to follow PageFactory pattern so started to implement it
+4) Updated my .gitignore file... I don't want my local files at remote
+5) I don't like how we have to init driver in every test file... so created a single WebDriver instance for the whole project using
+singleton pattern
+6) I also didn't like the way we choose the chromedriver binary.... Don't depend on code to check which version. Instead manually do it.
+   Also read somewhere java.sun is depractated. So instead created a ResourceBundle to store "chromePath". This all goes in the file
+   myorg.utils.AutomationCore.
+   So if you want a driver just call AutomationCore.getDriver().. // dude i am unique
+7) I don't like the way how we have to mention the baseUrl(https://www.cleartrip.com) everytime so also put it in ResourceBundle
+   Also don't mention the whole name again. Just mention the leading path.. i.e /hotels will be automatically converted to 
+   https://www.cleartrip.com/hotels This goes in myorg.utils.ApplicationSteps.
+8) I don't like the way we write driver.find_element(By by) everytime. So i created SeleniumSteps that will contain all methods that 
+   are used much more frequently. getElement() is one of them 
+9) Also don't mention waitFor() in everyMethod. So pushed it to SeleniumSteps.
+10) I prefer to use explicit wait instead of implicit wait. So there is a method for it in SeleniumSteps. And wait. Decide the 
+    waiting time and keep them in ResourceBundle. Hence we have "explicitWaitSec" in properties/config.properties
+11) Coming to tests, Also page POM(Page Object Model) Each and every page has their own locators & Methods to perform task
+12) So We have SignInPage,HotelsPage,HomePage,FlightPage & FlightListPage. The code is pretty self explanatory.
+13) Now the UI Looks extremely clean.
+14) Remember you want to pass data from your tests file to the respective page. Always code that way. So we have paramaters to every  method in Pages. I don't wanna hardcode it.
+15) Also Verify.... Methods should never perform any actions like clicking or something. It should just assert or verify. (Learned from my internship manager.. he defines it "Golden Rules of OOP")
+16) Make a boolean method first and then call it in verify. So now you have access to both.
+17) Worked on 'shivam' Branch first. After completion of a major part Created a PR to 'developer' Branch and merged it. Master is still equal commits as yours. SO REFER CODE IN DEVELOPER BRANCH
+
+
+-------------------
+Things i wish I could have improved :
+1) I don't like how we define locators in @FindBy()... I find it somehow bad practise and harcoded. Instead I wished to create a new Annotation that scans the locator from any .properties file present in my project.
+
+2) Should have created a manual report. I like what testng provides but what if i want something advance?
+
+If you tell me I will definetely work on this things. But I sure need a little guidiance on the 1st one. :)
+
+---------------------------
+Thanks. That was it. Hope to hear from you soon,
+Shivam (@o-x-y-g-e-n)
+
+----------------------------------------
+
+SidePoint : You might find a commit from user(@fiverrBruh). That's just my another account. It was preconfigured in Intellij Idea and i 
+kinda commited it from there. Later I did changed it.

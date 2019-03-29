@@ -72,4 +72,12 @@ public class SeleniumSteps {
     public static void selectFromDropBox(WebElement element,String visibleText){
         new Select(element).selectByVisibleText(visibleText);
     }
+
+    public static void waitFor(int milliSeconds){
+        try {
+            Thread.sleep(milliSeconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
